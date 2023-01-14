@@ -88,15 +88,55 @@ var upperCasedCharacters = [
   "Z",
 ];
 
-/*
+var passwordCharSet = "";
+var keyChar = "";
+var length = "";
+
 // Function to prompt user for password options
-function getPasswordOptions() {}
+function getPasswordOptions() {
+  window.prompt("Enter a number from 8 to 128 for password length.");
+
+  var lowerCasedCharacters = window.confirm(
+    "Would you like to use lowercase letters?"
+  );
+  if (lowerCasedCharacters) {
+    passwordCharSet += lowerCasedCharacters;
+  }
+
+  var upperCasedCharacters = window.confirm(
+    "Would you like to use uppercase letters?"
+  );
+  if (upperCasedCharacters) {
+    passwordCharSet += upperCasedCharacters;
+  }
+
+  var specialCharacters = window.confirm("Would you like to use symbols?");
+  if (specialCharacters) {
+    passwordCharSet += specialCharacters;
+  }
+
+  var numericCharacters = window.confirm("Would you like to use numbers?");
+  if (numericCharacters) {
+    passwordCharSet += numericCharacters;
+  }
+
+  //Function for getting a random element from an array
+  function ramdonNumber() {
+    return this[Math.floor(Math.random() * this.length)];
+  }
+}
 getPasswordOptions();
-// Function for getting a random element from an array
-function getRandom(arr) {}
 
 // Function to generate password with user input
-function generatePassword() {}
+function generatePassword() {
+  var password = "";
+  for (let i = 0; i < passwordCharSet.length; i++) {
+    password +=
+      passwordCharSet[Math.floor(Math.random() * passwordCharSet.length)];
+  }
+  return password;
+}
+console.log(generatePassword());
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -111,53 +151,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-*/
-
-/*
-const key_strings = {
-  lowercase: "abcdefghijklmnopqrstuvwxyz",
-  uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  number: "0123456789",
-  symbol: "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~",
-};
-*/
-
-function generatePassword() {
-  var passwordCharSet = "";
-
-  var length = window.prompt(
-    "Enter a number from 8 to 128 for password length."
-  );
-
-  var lowerCasedCharacters = window.confirm(
-    "Would you like to use lowercase letters?"
-  );
-  if (lowerCasedCharacters) {
-    passwordCharSet += key_strings.lowerCasedCharacters;
-  }
-
-  var upperCasedCharacters = window.confirm(
-    "Would you like to use uppercase letters?"
-  );
-  if (upperCasedCharacters) {
-    passwordCharSet += key_strings.upperCasedCharacters;
-  }
-
-  var specialCharacters = window.confirm("Would you like to use symbols?");
-  if (specialCharacters) {
-    passwordCharSet += key_strings.specialCharacters;
-  }
-
-  var numericCharacters = window.confirm("Would you like to use numbers?");
-  if (numericCharacters) {
-    passwordCharSet += key_strings.numericCharacters;
-  }
-  var password = "";
-  for (let i = 0; i < length; i++) {
-    password +=
-      passwordCharSet[Math.floor(Math.random() * passwordCharSet.length)];
-  }
-  return password;
-}
-
-console.log(generatePassword());

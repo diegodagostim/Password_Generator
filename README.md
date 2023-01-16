@@ -6,3 +6,5 @@
 - Next step was the reference to the HTML file.
 - The last step was the code to write the password inside the HTML structure.
 - Finally, the code to listen to the button click.
+
+<img src="screenshot.png">

@@ -14,7 +14,7 @@ body,
 
 body {
   font-family: sans-serif;
-  background-color: #f9fbfd;
+  background-color: #f0eded;
 }
 
 .wrapper {
@@ -70,18 +70,6 @@ header {
   content: " ";
   display: block;
   clear: both;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-}
-
-fieldset {
-  display: block;
-  justify-items: center;
-  padding: 20px;
-  border: 2px dashed #c0c7cf;
 }
 
 .btn {

@@ -88,13 +88,14 @@ var upperCasedCharacters = [
   "Z",
 ];
 
+var char = "";
 var passwordCharSet = "";
-var keyChar = "";
-var length = "";
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  window.prompt("Enter a number from 8 to 128 for password length.");
+  char = parseInt(
+    window.prompt("Enter a number from 10 to 64 for password length.")
+  );
 
   var lowerCasedCharacters = window.confirm(
     "Would you like to use lowercase letters?"
@@ -119,23 +120,19 @@ function getPasswordOptions() {
   if (numericCharacters) {
     passwordCharSet += numericCharacters;
   }
-
-  //Function for getting a random element from an array
-  function ramdonNumber() {
-    return this[Math.floor(Math.random() * this.length)];
-  }
 }
 getPasswordOptions();
 
 // Function to generate password with user input
 function generatePassword() {
   var password = "";
-  for (let i = 0; i < passwordCharSet.length; i++) {
+  for (i = 0; i < passwordCharSet.length; i++) {
     password +=
       passwordCharSet[Math.floor(Math.random() * passwordCharSet.length)];
   }
   return password;
 }
+
 console.log(generatePassword());
 
 // Get references to the #generate element
